@@ -11,3 +11,4 @@ if __name__ == "__main__":
     day4.part1(inputs.day4.data)
     day4.part2(inputs.day4.data)
     day5.part1(inputs.day5.data)
+    day5.part2(inputs.day5.data)

@@ -20,16 +20,14 @@ def get_pos(code: str) -> Vec2:
             cmax = cmin + cdiff // 2
         else:
             cmin = cmin + ceil(cdiff / 2)
-    
+
     return (rmin, cmin)
 
 
 def get_seats(codes: List[str]) -> List[Vec2]:
     seats = []
     for code in codes:
-        seats.append(
-            get_pos(code)
-        )
+        seats.append(get_pos(code))
     return seats
 
 
@@ -37,6 +35,23 @@ def part1(data: str) -> int:
     print("Running day 5 part 1")
 
     seats = get_seats(data.splitlines())
-    max_id = max([s[0]*8 + s[1] for s in seats])
+    max_id = max([s[0] * 8 + s[1] for s in seats])
     print(max_id)
     return max_id
+
+
+def part2(data: str):
+    print("Running day 5 part 2")
+
+    seats = get_seats(data.splitlines())
+    ids = [s[0] * 8 + s[1] for s in seats]
+    ids.sort()
+
+    ind = 1
+    while ind <= int(len(ids) - 1):
+        if (ids[ind] - ids[ind - 1]) == 2:
+            print(ids[ind])
+            return ids[ind] - 1
+        ind += 1
+
+    return None
