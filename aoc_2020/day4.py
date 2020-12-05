@@ -46,16 +46,16 @@ def valid_height(height: str) -> bool:
         return False
 
 
-def passport_is_valid(pp: Passport, strict = False) -> bool:
+def passport_is_valid(pp: Passport, strict=False) -> bool:
     if len(pp.keys()) == 8 or (len(pp.keys()) == 7 and "cid" not in pp):
-        if (strict):
+        if strict:
             valid = True
             valid &= int(pp["byr"]) >= 1920 and int(pp["byr"]) <= 2002
             valid &= int(pp["iyr"]) >= 2010 and int(pp["iyr"]) <= 2020
             valid &= int(pp["eyr"]) >= 2020 and int(pp["eyr"]) <= 2030
             valid &= valid_height(str(pp["hgt"]))
             valid &= re.fullmatch("#[0-9a-f]{6}", str(pp["hcl"])) is not None
-            valid &= pp["ecl"] in ["amb", "blu", "brn", "gry", "grn", "hzl","oth"]
+            valid &= pp["ecl"] in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
             valid &= str(pp["pid"]).isdigit() and len(str(pp["pid"])) == 9
             return valid
         else:

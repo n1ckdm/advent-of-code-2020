@@ -1,4 +1,4 @@
-from . import day1, day2, day3, day4
+from . import day1, day2, day3, day4, day5
 from . import inputs
 
 if __name__ == "__main__":
@@ -10,3 +10,4 @@ if __name__ == "__main__":
     day3.part2(inputs.day3.data)
     day4.part1(inputs.day4.data)
     day4.part2(inputs.day4.data)
+    day5.part1(inputs.day5.data)
