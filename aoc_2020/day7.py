@@ -11,7 +11,7 @@ def parse_line(line: str) -> Tuple[str, Dict[str, int]]:
         primary = p_match.groups()[0]
 
         o_match = others_re.findall(line)
-        
+
         res = {}
         for num, bag in o_match:
             res[bag] = int(num)
@@ -31,7 +31,9 @@ def parse_data(data: str) -> Dict[str, Dict[str, int]]:
     return res
 
 
-def contains_bag_type(all_contents: Dict[str, Dict[str, int]], search_type: str, bag_type: str) -> bool:
+def contains_bag_type(
+    all_contents: Dict[str, Dict[str, int]], search_type: str, bag_type: str
+) -> bool:
     contents = all_contents[search_type]
 
     if bag_type in contents:

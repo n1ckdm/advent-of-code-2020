@@ -11,7 +11,7 @@ faded blue bags contain no other bags.
 dotted black bags contain no other bags.
 """
 
-data2="""shiny gold bags contain 2 dark red bags.
+data2 = """shiny gold bags contain 2 dark red bags.
 dark red bags contain 2 dark orange bags.
 dark orange bags contain 2 dark yellow bags.
 dark yellow bags contain 2 dark green bags.
@@ -20,9 +20,12 @@ dark blue bags contain 2 dark violet bags.
 dark violet bags contain no other bags.
 """
 
+
 def test_parse_line():
-    contents = parse_line("light red bags contain 1 bright white bag, 2 muted yellow bags")
-    assert contents == ("light red", {"bright white": 1, "muted yellow": 2} )
+    contents = parse_line(
+        "light red bags contain 1 bright white bag, 2 muted yellow bags"
+    )
+    assert contents == ("light red", {"bright white": 1, "muted yellow": 2})
 
 
 def test_parse_data():
